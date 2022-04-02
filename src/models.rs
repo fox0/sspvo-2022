@@ -1,5 +1,3 @@
-// use std::fmt::Debug;
-
 use serde::{Deserialize, Serialize, Serializer};
 use serde::ser::SerializeStruct;
 
@@ -90,9 +88,7 @@ impl<T> Token<T>
     // }
 
     pub fn new_add(ogrn: String, kpp: String, payload: T) -> Self {
-        let entity_type = unsafe { std::intrinsics::type_name::<T>() }.to_string();
-        // "spvo_rs::models::OrgDirection"
-        let entity_type = entity_type.rsplit_once("::").unwrap().1.to_string();
+        let entity_type = serde_type_name::type_name(&payload).unwrap().to_string();
         let header = Header {
             ogrn,
             kpp,

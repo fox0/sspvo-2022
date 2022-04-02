@@ -1,5 +1,3 @@
-#![feature(core_intrinsics)]
-
 mod models;
 
 fn main() {
