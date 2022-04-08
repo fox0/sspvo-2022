@@ -6,6 +6,7 @@ use ss_derive::PackageData;
 
 pub trait PackageData: Serialize {
     fn get_name(&self) -> &str;
+    fn get_uid(&self) -> &String;
 
     fn get_xml_add(&self) -> String {
         let xml = serde_xml_rs::to_string(&self).unwrap();
@@ -14,12 +15,15 @@ pub trait PackageData: Serialize {
 
     fn get_xml_remove(&self) -> String {
         let name = self.get_name();
-        format!(r#"<?xml version="1.0" encoding="utf-8"?><PackageData><{}><Uid>{}</Uid></{}></PackageData>"#, name, "", name)
+        let uid = self.get_uid();
+        format!(r#"<?xml version="1.0" encoding="utf-8"?><PackageData><{}><Uid>{}</Uid></{}></PackageData>"#, name, uid, name)
     }
 }
 
 #[derive(Serialize, PackageData)]
-pub struct NoPayload;
+pub struct NoPayload {
+    uid: String,  // unused
+}
 
 #[derive(Serialize, PackageData)]
 #[serde(rename_all = "PascalCase")]
@@ -69,7 +73,7 @@ pub enum Action {
     GetMessage,
     MessageConfirm,
     Add,
-    Edit,
+    // Edit,
     Remove,
     Get,
 }
@@ -108,19 +112,28 @@ pub struct Token<T> where T: Serialize + PackageData {
 
 impl<T> Token<T> where T: Serialize + PackageData {
     pub fn new_add(ogrn: impl Into<String>, kpp: impl Into<String>, payload: T) -> Self {
+        Self::new(Action::Add, ogrn.into(), kpp.into(), payload)
+    }
+
+    // pub fn new_edit(ogrn: impl Into<String>, kpp: impl Into<String>, payload: T) -> Self {
+    //     Self::new(Action::Edit, ogrn.into(), kpp.into(), payload)
+    // }
+
+    pub fn new_remove(ogrn: impl Into<String>, kpp: impl Into<String>, payload: T) -> Self {
+        Self::new(Action::Remove, ogrn.into(), kpp.into(), payload)
+    }
+
+    pub fn new_get(ogrn: impl Into<String>, kpp: impl Into<String>, payload: T) -> Self {
+        Self::new(Action::Get, ogrn.into(), kpp.into(), payload)
+    }
+
+    fn new(action: Action, ogrn: String, kpp: String, payload: T) -> Self {
+        let entity_type = Some(payload.get_name().into());
         Self {
-            header: Header {
-                action: Action::Add,
-                ogrn: ogrn.into(),
-                kpp: kpp.into(),
-                entity_type: Some(payload.get_name().to_string()),
-                id_jwt: None,
-            },
+            header: Header { action, ogrn, kpp, entity_type, id_jwt: None },
             payload,
         }
     }
-
-    // pub fn new_edit()
 
     // todo
     fn sign(body: &str) -> Vec<u8> {
@@ -131,43 +144,23 @@ impl<T> Token<T> where T: Serialize + PackageData {
 impl Token<NoPayload> {
     /// Проверка действительности регистрации сертификата к организации
     pub fn new_check_certificate(ogrn: impl Into<String>, kpp: impl Into<String>) -> Self {
-        Self {
-            header: Header {
-                action: Action::CheckCertificate,
-                ogrn: ogrn.into(),
-                kpp: kpp.into(),
-                entity_type: None,
-                id_jwt: None,
-            },
-            payload: NoPayload,
-        }
+        Self::new_nopayload(Action::CheckCertificate, ogrn.into(), kpp.into(), None)
     }
 
     /// Запрос на получение сообщений из очереди
     pub fn new_get_message(ogrn: impl Into<String>, kpp: impl Into<String>, id_jwt: Option<u64>) -> Self {
         let id_jwt = id_jwt.unwrap_or(0u64);
-        Self {
-            header: Header {
-                action: Action::GetMessage,
-                ogrn: ogrn.into(),
-                kpp: kpp.into(),
-                entity_type: None,
-                id_jwt: Some(id_jwt),
-            },
-            payload: NoPayload,
-        }
+        Self::new_nopayload(Action::GetMessage, ogrn.into(), kpp.into(), Some(id_jwt))
     }
 
     pub fn new_message_confirm(ogrn: impl Into<String>, kpp: impl Into<String>, id_jwt: u64) -> Self {
+        Self::new_nopayload(Action::MessageConfirm, ogrn.into(), kpp.into(), Some(id_jwt))
+    }
+
+    fn new_nopayload(action: Action, ogrn: String, kpp: String, id_jwt: Option<u64>) -> Self {
         Self {
-            header: Header {
-                action: Action::MessageConfirm,
-                ogrn: ogrn.into(),
-                kpp: kpp.into(),
-                entity_type: None,
-                id_jwt: Some(id_jwt),
-            },
-            payload: NoPayload,
+            header: Header { action, ogrn, kpp, entity_type: None, id_jwt },
+            payload: NoPayload { uid: "".into() }, // unused
         }
     }
 }
@@ -177,7 +170,7 @@ impl<T> Serialize for Token<T> where T: Serialize + PackageData {
         let header = serde_json::to_string(&self.header).unwrap();
         let payload = match self.header.action {
             Action::CheckCertificate | Action::GetMessage | Action::MessageConfirm => "".to_string(),
-            Action::Add | Action::Edit => self.payload.get_xml_add(),
+            Action::Add /*| Action::Edit*/ => self.payload.get_xml_add(),
             Action::Remove | Action::Get => self.payload.get_xml_remove(),
         };
         if cfg!(debug_assertions) {
@@ -199,31 +192,13 @@ impl<T> Serialize for Token<T> where T: Serialize + PackageData {
 
 #[cfg(test)]
 mod tests {
-    use crate::models::{Action, Header, NoPayload, OrgDirection, Token};
-
-    #[test]
-    fn org_direction_to_xml() {
-        let payload = OrgDirection { uid: "123".to_string(), id_direction: 42 };
-        let xml = serde_xml_rs::to_string(&payload).unwrap();
-        assert_eq!(xml, "<OrgDirection><Uid>123</Uid><IdDirection>42</IdDirection></OrgDirection>");
-    }
-
-    #[test]
-    fn header_check_certificate() {
-        let header = Header {
-            ogrn: "123".to_string(),
-            kpp: "456".to_string(),
-            action: Action::CheckCertificate,
-            entity_type: None,
-            id_jwt: None,
-        };
-        let json = serde_json::to_string(&header).unwrap();
-        assert_eq!(json, r#"{"Ogrn":"123","Kpp":"456"}"#);
-    }
+    use crate::models::{Action, Header, NoPayload, OrgDirection, Token, PackageData};
 
     #[test]
     fn token_check_certificate() {
         let token = Token::new_check_certificate("123", "456");
+        let json = serde_json::to_string(&token.header).unwrap();
+        assert_eq!(json, r#"{"Ogrn":"123","Kpp":"456"}"#);
         let json = serde_json::to_string(&token).unwrap();
         assert_eq!(json, r#"{"Token":"eyJPZ3JuIjoiMTIzIiwiS3BwIjoiNDU2In0=..AQID"}"#);
     }
@@ -233,6 +208,8 @@ mod tests {
         let token = Token::new_get_message("123", "456", None);
         let json = serde_json::to_string(&token.header).unwrap();
         assert_eq!(json, r#"{"Action":"GetMessage","Ogrn":"123","Kpp":"456","IdJwt":0}"#);
+        // let json = serde_json::to_string(&token).unwrap();
+        // assert_eq!(json, r#"{"Token":""}"#);
     }
 
     #[test]
@@ -240,6 +217,8 @@ mod tests {
         let token = Token::new_message_confirm("123", "456", 42);
         let json = serde_json::to_string(&token.header).unwrap();
         assert_eq!(json, r#"{"Action":"MessageConfirm","Ogrn":"123","Kpp":"456","IdJwt":42}"#);
+        // let json = serde_json::to_string(&token).unwrap();
+        // assert_eq!(json, r#"{"Token":""}"#);
     }
 
     #[test]
@@ -248,10 +227,34 @@ mod tests {
         let token = Token::new_add("123", "456", payload);
         let json = serde_json::to_string(&token.header).unwrap();
         assert_eq!(json, r#"{"Action":"Add","Ogrn":"123","Kpp":"456","EntityType":"OrgDirection"}"#);
-        let xml = serde_xml_rs::to_string(&token.payload).unwrap();
-        assert_eq!(xml, r"<OrgDirection><Uid>123</Uid><IdDirection>42</IdDirection></OrgDirection>");
+        let xml = token.payload.get_xml_add();
+        assert_eq!(xml, r#"<?xml version="1.0" encoding="utf-8"?><PackageData><OrgDirection><Uid>123</Uid><IdDirection>42</IdDirection></OrgDirection></PackageData>"#);
         let json = serde_json::to_string(&token).unwrap();
         assert_eq!(json, r#"{"Token":"eyJBY3Rpb24iOiJBZGQiLCJPZ3JuIjoiMTIzIiwiS3BwIjoiNDU2IiwiRW50aXR5VHlwZSI6Ik9yZ0RpcmVjdGlvbiJ9.PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48UGFja2FnZURhdGE+PE9yZ0RpcmVjdGlvbj48VWlkPjEyMzwvVWlkPjxJZERpcmVjdGlvbj40MjwvSWREaXJlY3Rpb24+PC9PcmdEaXJlY3Rpb24+PC9QYWNrYWdlRGF0YT4=.AQID"}"#);
+    }
+
+    #[test]
+    fn token_new_remove() {
+        let payload = OrgDirection { uid: "123".to_string(), id_direction: 42 };
+        let token = Token::new_remove("123", "456", payload);
+        let json = serde_json::to_string(&token.header).unwrap();
+        assert_eq!(json, r#"{"Action":"Remove","Ogrn":"123","Kpp":"456","EntityType":"OrgDirection"}"#);
+        let xml = token.payload.get_xml_remove();
+        assert_eq!(xml, r#"<?xml version="1.0" encoding="utf-8"?><PackageData><OrgDirection><Uid>123</Uid></OrgDirection></PackageData>"#);
+        // let json = serde_json::to_string(&token).unwrap();
+        // assert_eq!(json, r#"{"Token":""}"#);
+    }
+
+    #[test]
+    fn token_new_get() {
+        let payload = OrgDirection { uid: "123".to_string(), id_direction: 42 };
+        let token = Token::new_get("123", "456", payload);
+        let json = serde_json::to_string(&token.header).unwrap();
+        assert_eq!(json, r#"{"Action":"Get","Ogrn":"123","Kpp":"456","EntityType":"OrgDirection"}"#);
+        let xml = token.payload.get_xml_remove();
+        assert_eq!(xml, r#"<?xml version="1.0" encoding="utf-8"?><PackageData><OrgDirection><Uid>123</Uid></OrgDirection></PackageData>"#);
+        // let json = serde_json::to_string(&token).unwrap();
+        // assert_eq!(json, r#"{"Token":""}"#);
     }
 
 //     #[test]

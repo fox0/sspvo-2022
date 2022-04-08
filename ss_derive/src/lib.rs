@@ -12,6 +12,9 @@ pub fn my_macro_here_derive(input: TokenStream) -> TokenStream {
             fn get_name(&self) -> &str {
                 stringify!(#name)
             }
+            fn get_uid(&self) -> &String {
+                &self.uid
+            }
         }
     };
     gen.into()
