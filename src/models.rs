@@ -1,8 +1,5 @@
-mod token;
-
 use serde::Serialize;
 use ss_derive::PackageData;
-pub use token::*;
 
 
 /// ```
@@ -52,7 +49,7 @@ pub struct OrgDirection {
 
 #[cfg(test)]
 mod tests {
-    use crate::models::{PackageData, OrgDirection};
+    use crate::models::{OrgDirection, PackageData};
 
     #[test]
     fn org_direction_add() {

@@ -2,8 +2,9 @@
 #![warn(clippy::pedantic)]
 
 mod models;
+mod token;
 
-use crate::models::Token;
+use crate::token::Token;
 
 
 fn main() {

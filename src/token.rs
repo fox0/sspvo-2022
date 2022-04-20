@@ -56,32 +56,27 @@ impl Action {
     }
 }
 
-#[derive(Serialize)]
-#[serde(rename_all = "PascalCase")]
-struct Header {
-    #[serde(skip_serializing_if = "Action::is_check_certificate")]
-    action: Action,
-    ogrn: String,
-    kpp: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    entity_type: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    id_jwt: Option<u64>,
-}
-
 #[derive(Debug, PartialEq, Deserialize)]
 enum PayloadType {
     Success,
     Error,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 #[serde(rename_all = "PascalCase")]
-struct ResponseHeader {
-    id_jwt: u64,
+struct Header {
+    #[serde(skip_deserializing)]
+    ogrn: String,
+    #[serde(skip_deserializing)]
+    kpp: String,
+    #[serde(skip_serializing_if = "Action::is_check_certificate")]
     action: Action,
-    entity_type: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    entity_type: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    id_jwt: Option<u64>,
+    #[serde(skip_serializing)]
     payload_type: PayloadType,
 }
 
@@ -167,15 +162,18 @@ impl<T> Serialize for Token<T> where T: Serialize + PackageData {
     }
 }
 
-// ResponseToken
+#[derive(Deserialize)]
+#[serde(rename_all = "PascalCase")]
+enum ResponseToken {
+    ResponseToken(Token<>)
+}
+//
 
 
 #[cfg(test)]
 mod tests {
     use crate::models::{PackageData, OrgDirection};
-
-    use crate::Token;
-    use crate::models::token::{Action, PayloadType, ResponseHeader};
+    use crate::token::{Token, Action, PayloadType, ResponseHeader};
 
     #[test]
     fn token_check_certificate() {
