@@ -9,10 +9,8 @@ lto = true
 codegen-units = 1
 
 [dependencies]
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-serde-xml-rs = "0.5.1"
-#serde_type_name = "0.2.0"
-base64 = "0.13"
+yaserde = "0.8"
+yaserde_derive = "0.8"
+validator = { version = "0.15", features = ["derive"] }
 
-ss_derive = { path = "./ss_derive" }
+#base64 = "0.13"
