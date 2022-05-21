@@ -1,0 +1,10 @@
+<PackageData>
+  <CampaignAchievement>
+    <Uid>string</Uid>
+    <UidCampaign>string</UidCampaign>
+    <IdCategory>201</IdCategory>
+    <IdAchievementType>201</IdAchievementType>
+    <Name>string</Name>
+    <MaxValue>201</MaxValue>
+  </CampaignAchievement>
+</PackageData>

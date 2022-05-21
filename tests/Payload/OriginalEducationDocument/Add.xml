@@ -1,0 +1,15 @@
+<PackageData>
+  <OriginalEducationDocument>
+	  <IdEntrantChoice>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <Guid>string</Guid>
+        <Snils>string</Snils>
+    </IdEntrantChoice>
+	  <UidEducationDocumentChoice>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <Uid>string</Uid>
+        <UidEpgu>201</UidEpgu>
+    </UidEducationDocumentChoice>
+	  <OrigDocDate>2021-04-15T05:49:45+03:00</OrigDocDate>
+  </OriginalEducationDocument>
+</PackageData>

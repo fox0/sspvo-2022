@@ -1,0 +1,102 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Document">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="IdEntrantChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Guid"/>
+                                        <xs:element type="string-11" name="Snils"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="UidIdentificationChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Uid"/>
+                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="UidChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Uid"/>
+                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:positiveInteger" name="IdDocumentVersion"/>
+                           <xs:element type="string-255" name="Name"/>
+                            <xs:element type="string-20" name="Series" minOccurs="0"/>
+                            <xs:element type="string-50" name="Number" minOccurs="0"/>
+                            <xs:element type="xs:date" name="IssueDate" minOccurs="0"/>
+                            <xs:element type="string-500" name="IssueOrg" minOccurs="0"/>
+                            <xs:element name="DocumentVersionFields" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:any maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="File" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element type="xs:string" name="Base64" />
+                                        <xs:element type="string-20" name="Extension" minOccurs="0"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="string-11">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="11"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-20">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-32">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-50">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-255">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-500">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

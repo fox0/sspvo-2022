@@ -1,0 +1,14 @@
+<PackageData>
+  <TargetContract>
+    <IdEntrantChoice>
+      <!--You have a CHOICE of the next 2 items at this level-->
+      <Guid>string</Guid>
+      <Snils>string</Snils>
+    </IdEntrantChoice>
+    <UidChoice>
+      <!--You have a CHOICE of the next 2 items at this level-->
+      <Uid>string</Uid>
+      <UidEpgu>100</UidEpgu>
+    </UidChoice>
+  </TargetContract>
+</PackageData>

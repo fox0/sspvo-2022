@@ -1,0 +1,181 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="PackageData">
+		<xs:complexType>
+			<xs:sequence>
+
+				<xs:element name="CompetitiveGroupApplicationsList">
+					<xs:annotation>
+						<xs:documentation>Ранжированный конкурсный список</xs:documentation>
+					</xs:annotation>
+
+					<xs:complexType>
+						<xs:all>
+							<xs:element type="string-36" name="UidCompetitiveGroup"/>
+							<xs:element type="xs:positiveInteger" name="AdmissionVolume">
+								<xs:annotation>
+									<xs:documentation>Количество мест в конкурсе</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+
+							<xs:element type="xs:positiveInteger" name="CountFirstStep">
+								<xs:annotation>
+									<xs:documentation>Количество мест - без вступительных испытаний (первый этап зачисления)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+
+							<xs:element type="xs:positiveInteger" name="CountSecondStep">
+								<xs:annotation>
+									<xs:documentation>Количество мест - последующие этапы зачисления</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+
+							<xs:element type="xs:dateTime" name="Changed">
+								<xs:annotation>
+									<xs:documentation>Дата и время формирования КС вузом. Информационноое поле</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+
+							<xs:element name="ApplicationList">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Application" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+													<xs:element name="UidApplicationChoice">
+														<xs:complexType>
+															<xs:choice>
+																<xs:element type="string-36" name="Uid"/>
+																<xs:element type="xs:int" name="UidEpgu"/>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+
+													<xs:element type="xs:positiveInteger" name="Rating">
+													<xs:annotation>
+															<xs:documentation>Ранг заявления (Обязательно: от 1 до кол-ва заявлений)</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+
+													<xs:element type="xs:boolean" name="WithoutTests" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>БВИ</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+
+													<xs:element type="string-500" name="ReasonWithoutTests" minOccurs="0"> 
+														<xs:annotation>
+															<xs:documentation>Основание приема без вступительных испытаний</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+
+													<xs:element type="string-255" name="EntranceTest1">
+														<xs:annotation>
+															<xs:documentation>Здесь и далее - Наименование ВИ</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+					
+													<xs:element type="xs:float" name="Result1"> 
+														<xs:annotation>
+															<xs:documentation>Здесь и далее - количество баллов за ВИ</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+				
+													<xs:element type="string-255" name="EntranceTest2"/>
+													<xs:element type="xs:float" name="Result2"/>
+													<xs:element type="string-255" name="EntranceTest3"/>
+													<xs:element type="xs:float" name="Result3"/>
+													<xs:element type="string-255" name="EntranceTest4" minOccurs="0"/>
+													<xs:element type="xs:float" name="Result4" minOccurs="0"/>
+													<xs:element type="string-255" name="EntranceTest5" minOccurs="0"/>
+													<xs:element type="xs:float" name="Result5" minOccurs="0"/>
+													<xs:element type="xs:float" name="AchievementsMark">
+														<xs:annotation>
+															<xs:documentation>Сумма баллов за индивидуальные достижения</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+			
+													<xs:element type="xs:float" name="EntranceTestMark">
+														<xs:annotation>
+															<xs:documentation>Сумма баллов за вступительные испытания</xs:documentation>
+														</xs:annotation>
+													</xs:element> 
+	
+													<xs:element type="xs:float" name="SumMark"> 
+														<xs:annotation>
+															<xs:documentation>Сумма конкурсных баллов (за вступительные испытания и индивидуальные достижения)</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+
+													<xs:element type="xs:boolean" name="Benefit"> 
+														<xs:annotation>
+															<xs:documentation>Наличие преимущественных прав зачисления</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+				
+													<xs:element type="string-500" name="ReasonBenefit" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Преимущественное право</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+		
+													<xs:element type="xs:boolean" name="Agreed"> 
+														<xs:annotation>
+															<xs:documentation>Наличие заявления о согласии на зачисление</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+
+													<xs:element type="xs:boolean" name="Original"> 
+														<xs:annotation>
+															<xs:documentation>Наличие оригинала документа об образовании</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+
+													<xs:element type="string-500" name="Addition" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Дополнительно поле. Примечание</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+
+													<xs:element type="xs:positiveInteger" name="IdStageEnrollment" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Предполагаемый этап зачисления (StagesEnrollmentList)</xs:documentation>
+														</xs:annotation>
+													</xs:element>	
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="string-20">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string-36">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="36"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string-255">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string-500">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

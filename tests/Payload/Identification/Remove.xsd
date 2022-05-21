@@ -1,0 +1,44 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Identification">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="IdEntrantChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Guid"/>
+                                        <xs:element type="string-11" name="Snils"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="UidChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Uid"/>
+                                        <xs:element type="xs:integer" name="UidEpgu"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:simpleType name="string-11">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="11"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

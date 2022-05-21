@@ -1,0 +1,79 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="TargetOrganization">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element type="string-36" name="Uid"/>
+                            <xs:element type="string-13" name="Ogrn" />
+                            <xs:element type="string-9" name="Kpp"  />
+                            <xs:element type="string-10" name="Inn"  />
+                            <xs:element type="string-255" name="ShortTitle"  />
+                            <xs:element type="string-500" name="FullTitle"  />
+                            <xs:element type="string-2048" name="Address" minOccurs="0"/>
+                            <xs:element type="string-255" name="Phone" minOccurs="0"/>
+                            <xs:element type="string-255" name="Email" minOccurs="0"/>
+                            <xs:element type="string-500" name="ChiefName" minOccurs="0"/>
+                            <xs:element name="TargetContractList" minOccurs="0">
+                                <xs:element name="UidChoice" maxOccurs="unbounded">
+                                    <xs:complexType>
+                                        <xs:choice>
+                                            <xs:element type="string-36" name="Uid"/>
+                                            <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                        </xs:choice>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:simpleType name="string-9">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="9"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-10">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-13">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="13"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-255">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-500">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-2048">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2048"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

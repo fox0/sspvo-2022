@@ -1,0 +1,26 @@
+<PackageData>
+  <EntranceTest>
+    <Uid>string</Uid>
+    <UidCompetitiveGroup>string</UidCompetitiveGroup>
+    <IdEntranceTestType>201</IdEntranceTestType>
+    <!--Optional:-->
+    <TestName>string</TestName>
+    <IsEge>false</IsEge>
+    <MinScore>201</MinScore>
+    <MaxScore>201</MaxScore>
+    <!--Optional:-->
+    <LanguageList>
+      <!--1 or more repetitions:-->
+      <Language>
+        <IdLanguage>201</IdLanguage>
+      </Language>
+    </LanguageList>
+    <Priority>10</Priority>
+    <!--Optional:-->
+    <IdSubject>201</IdSubject>
+    <!--Optional:-->
+    <UidReplaceEntranceTest>string</UidReplaceEntranceTest>
+    <IsSpo>true</IsSpo>
+    <IsForeigner>true</IsForeigner>
+  </EntranceTest>
+</PackageData>

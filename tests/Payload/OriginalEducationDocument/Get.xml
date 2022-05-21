@@ -1,0 +1,9 @@
+<PackageData>
+  <OriginalEducationDocument>
+	  <IdEntrantChoice>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <Guid>string</Guid>
+        <Snils>string</Snils>
+    </IdEntrantChoice>
+  </OriginalEducationDocument>
+</PackageData>

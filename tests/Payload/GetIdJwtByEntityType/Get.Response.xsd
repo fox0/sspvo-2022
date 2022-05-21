@@ -1,0 +1,29 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="GetIdJwtByEntityType">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="JwtList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Jwt" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element type="xs:positiveInteger" name="Id"/>
+                                                    <xs:element type="xs:dateTime" name="CreatedAt"/>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

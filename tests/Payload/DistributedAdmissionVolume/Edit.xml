@@ -1,0 +1,20 @@
+<PackageData>
+	<DistributedAdmissionVolume>
+		<Uid>string</Uid>
+		<UidAdmissionVolume>string</UidAdmissionVolume>
+		<IdDirection>100</IdDirection>
+		<IdLevelBudget>100</IdLevelBudget>
+		<BudgetO>200</BudgetO>
+		<BudgetOz>200</BudgetOz>
+		<BudgetZ>200</BudgetZ>
+		<QuotaO>200</QuotaO>
+		<QuotaOz>200</QuotaOz>
+		<QuotaZ>200</QuotaZ>
+		<PaidO>200</PaidO>
+		<PaidOz>200</PaidOz>
+		<PaidZ>200</PaidZ>
+		<TargetO>200</TargetO>
+		<TargetOz>200</TargetOz>
+		<TargetZ>200</TargetZ>
+	</DistributedAdmissionVolume>
+</PackageData>

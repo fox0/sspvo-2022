@@ -1,0 +1,497 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="EpguApplication" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="EpguEntrant">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element type="string-36" name="Guid"/>
+                                        <xs:element type="string-11" name="Snils" minOccurs="0"/>
+                                        <xs:element type="string-255" name="Surname"/>
+                                        <xs:element type="string-255" name="Name"/>
+                                        <xs:element type="string-255" name="Patronymic" minOccurs="0"/>
+                                        <xs:element type="xs:positiveInteger" name="IdGender"/>
+                                        <xs:element type="xs:date" name="Birthday"/>
+                                        <xs:element type="string-500" name="Birthplace"/>
+                                        <xs:element type="string-120" name="Phone" minOccurs="0"/>
+                                        <xs:element type="string-150" name="Email" minOccurs="0"/>
+                                        <xs:element name="AddressList">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Address" minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:all>
+                                                                <xs:element type="string-1024" name="FullAddr"/>
+                                                                <xs:element type="string-6" name="IndexAddr"/>
+                                                                <xs:element type="xs:boolean" name="IsRegistration"/>
+                                                                <xs:element type="xs:positiveInteger" name="IdRegion"/>
+                                                                <xs:element type="string-50" name="Area" minOccurs="0"/>
+                                                                <xs:element type="string-50" name="City" minOccurs="0"/>
+                                                                <xs:element type="string-50" name="CityArea" minOccurs="0"/>
+                                                                <xs:element type="string-50" name="Street"/>
+                                                                <xs:element type="string-50" name="Place" minOccurs="0"/>
+                                                                <xs:element type="string-50" name="House"/>
+                                                                <xs:element type="string-50" name="Building1" minOccurs="0"/>
+                                                                <xs:element type="string-50" name="Building2" minOccurs="0"/>
+                                                                <xs:element type="string-50" name="Apartment" minOccurs="0"/>
+                                                            </xs:all>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="DocumentList">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element name="EducationList">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Education" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="EgeList">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Ege" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="CompatriotList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Compatriot" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="CompositionList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Composition" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="DisabilityList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Disability" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="MilitaryList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Military" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="OlympicList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Olympic" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="OrphanList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Orphan" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="OtherList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Other" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="ParentsLossList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="ParentsLost" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="RadiationWorkList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="RadiationWork" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="VeteranList" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Veteran" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:all>
+                                                                            <xs:element type="string-32" name="FileHash"/>
+                                                                            <xs:element name="UidChoice">
+                                                                                <xs:complexType>
+                                                                                    <xs:choice>
+                                                                                        <xs:element type="string-36" name="Uid"/>
+                                                                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                                    </xs:choice>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:all>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="IdentificationList">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Identification" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:all>
+                                                                <xs:element type="string-32" name="FileHash"/>
+                                                                <xs:element name="UidChoice">
+                                                                    <xs:complexType>
+                                                                        <xs:choice>
+                                                                            <xs:element type="string-36" name="Uid"/>
+                                                                            <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                        </xs:choice>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:all>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="TargetContractList" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="TargetContract" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:all>
+                                                                <xs:element type="string-32" name="FileHash"/>
+                                                                <xs:element name="UidChoice">
+                                                                    <xs:complexType>
+                                                                        <xs:choice>
+                                                                            <xs:element type="string-36" name="Uid"/>
+                                                                            <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                                        </xs:choice>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:all>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Photo"  minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element type="string-32" name="FileHash"/>
+                                                    <xs:element name="UidChoice">
+                                                        <xs:complexType>
+                                                            <xs:choice>
+                                                                <xs:element type="string-36" name="Uid"/>
+                                                                <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                            </xs:choice>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:integer" name="UidEpgu"/>
+                            <xs:element type="string-36" name="UidCompetitiveGroup"/>
+                            <xs:element type="string-36" name="UidTargetOrganization" minOccurs="0"/>
+                            <xs:element type="xs:string" name="AppNumber"/>
+                            <xs:element type="xs:dateTime" name="RegistrationDate"/><!--dateTime а не Date потому что возможно от нас захотят получать еще часовой пояс-->
+                            <xs:element type="xs:boolean" name="FirstHigherEducation"/>
+                            <xs:element type="xs:boolean" name="NeedHostel"/>
+                            <xs:element type="xs:positiveInteger" name="IdStatus"/>
+                            <xs:element type="xs:boolean" name="SpecialConditions" minOccurs="0"/>
+                            <xs:element type="xs:boolean" name="Agree" minOccurs="0"/>
+                            <xs:element type="xs:date" name="AgreeDate" minOccurs="0"/>
+                            <xs:element type="xs:positiveInteger" name="IdReturnType" minOccurs="0"/>
+                            <xs:element type="xs:date" name="ReturnDate" minOccurs="0"/>
+                            <xs:element type="string-500" name="StatusComment" minOccurs="0"/>
+                            <xs:element type="xs:dateTime" name="RefusEnrollment" minOccurs="0"/>
+                            <xs:element name="AppAchievementList" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AppAchievement" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element type="xs:long" name="UidEpgu"/>
+                                                    <xs:element type="xs:positiveInteger" name="IdCategory"/>
+                                                    <xs:element type="xs:string" name="Name"/>
+                                                    <xs:element type="xs:positiveInteger" name="Mark" minOccurs="0"/>
+                                                    <xs:element type="xs:positiveInteger" name="UidCmpAchievement" minOccurs="0"/>
+                                                    <xs:element name="AppAchievementDocumentUidChoice" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:choice>
+                                                                <xs:element type="string-36" name="Uid"/>
+                                                                <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                                            </xs:choice>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DisabledDocumentChoice" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Uid"/>
+                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                             <xs:element name="BenefitList" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Benefit" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element type="string-36" name="Uid"/>
+                                                    <xs:element type="xs:positiveInteger" name="IdBenefit"/>
+                                                    <xs:element type="xs:boolean" name="AppliedByVuz"/>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:simpleType name="string-6">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-11">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="11"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-32">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-50">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-120">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-150">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="150"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-255">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-500">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-1024">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1024"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+

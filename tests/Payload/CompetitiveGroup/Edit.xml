@@ -1,0 +1,22 @@
+<PackageData>
+	<CompetitiveGroup>
+		<Uid>string</Uid>
+		<UidCampaign>string</UidCampaign>
+		<Name>string</Name>
+		<!--Optional:-->
+		<IdLevelBudget>100</IdLevelBudget>
+		<IdEducationLevel>100</IdEducationLevel>
+		<IdEducationSource>100</IdEducationSource>
+		<IdEducationForm>100</IdEducationForm>
+		<UidOrgDirection>string</UidOrgDirection>
+		<AdmissionNumber>100</AdmissionNumber>
+		<!--Optional:-->
+		<Comment>string</Comment>
+		<!--Optional:-->
+		<BranchOgrn>string</BranchOgrn>
+		<!--Optional:-->
+		<BranchKpp>string</BranchKpp>
+		<!--Optional:-->
+		<IdStage>100</IdStage>
+	</CompetitiveGroup>
+</PackageData>

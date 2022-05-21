@@ -1,0 +1,35 @@
+<PackageData>
+  <OrderAdmission>
+    <Uid>string</Uid>
+    <!--Optional:-->
+    <UidParent>string</UidParent>
+    <OrderName>string</OrderName>
+    <OrderNumber>string</OrderNumber>
+    <OrderDate>2008-09-29</OrderDate>
+    <Published>2014-09-19</Published>
+    <PreferentialOrder>true</PreferentialOrder>
+    <Foreigners>false</Foreigners>
+    <!--Optional:-->
+    <AddApplicationList>
+      <!--1 or more repetitions:-->
+      <Application>
+        <UidChoice>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <Uid>string</Uid>
+          <UidEpgu>100</UidEpgu>
+        </UidChoice>
+      </Application>
+    </AddApplicationList>
+    <!--Optional:-->
+    <RemoveApplicationList>
+      <!--1 or more repetitions:-->
+      <Application>
+        <UidChoice>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <Uid>string</Uid>
+          <UidEpgu>100</UidEpgu>
+        </UidChoice>
+      </Application>
+    </RemoveApplicationList>
+  </OrderAdmission>
+</PackageData>

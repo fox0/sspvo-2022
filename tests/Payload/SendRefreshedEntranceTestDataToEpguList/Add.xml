@@ -1,0 +1,8 @@
+<PackageData>
+  <SendRefreshedEntranceTestDataToEpguList>
+    <!--1 or more repetitions:-->
+    <SendRefreshedEntranceTestDataToEpgu>
+      <UidCompetitiveGroup>string</UidCompetitiveGroup>
+    </SendRefreshedEntranceTestDataToEpgu>
+  </SendRefreshedEntranceTestDataToEpguList>
+</PackageData>

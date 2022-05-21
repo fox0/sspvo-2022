@@ -1,0 +1,17 @@
+<PackageData>
+  <EntranceTestLocation>
+    <Uid>string</Uid>
+    <UidEntranceTest>string</UidEntranceTest>
+    <TestDateStart>2021-04-15T05:49:45+03:00</TestDateStart>
+     <!--Optional:-->
+    <TestDateEnd>2021-04-15T05:49:45+03:00</TestDateEnd>
+    <CompletingEntryDate>2021-04-15T05:49:45+03:00</CompletingEntryDate>
+    <VisibleEpgu>true</VisibleEpgu>
+    <!--Optional:-->
+    <Url>http://sample.com</Url>
+    <!--Optional:-->
+    <Comment>string</Comment>
+    <TestLocation>string</TestLocation>
+    <EntrantsCount>201</EntrantsCount>
+  </EntranceTestLocation>
+</PackageData>

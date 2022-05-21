@@ -1,0 +1,18 @@
+<PackageData>
+  <TargetOrganization>
+    <Uid>string</Uid>
+    <Ogrn>string</Ogrn>
+    <Kpp>string</Kpp>
+    <Inn>string</Inn>
+    <ShortTitle>string</ShortTitle>
+    <FullTitle>string</FullTitle>
+    <!--Optional:-->
+    <Address>string</Address>
+    <!--Optional:-->
+    <Phone>string</Phone>
+    <!--Optional:-->
+    <Email>string</Email>
+    <!--Optional:-->
+    <ChiefName>string</ChiefName>
+  </TargetOrganization>
+</PackageData>

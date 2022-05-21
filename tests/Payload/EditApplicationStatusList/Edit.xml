@@ -1,0 +1,30 @@
+<PackageData>
+  <ApplicationStatusList>
+    <!--1 or more repetitions:-->
+    <ApplicationStatus>
+      <UidChoice>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <Uid>string</Uid>
+        <UidEpgu>10</UidEpgu>
+      </UidChoice>
+      <IdStatus>201</IdStatus>
+      <!--Optional:-->
+      <StatusComment>string</StatusComment>
+      <!--Optional:-->
+      <NoticeList>
+        <!--0 to 100 repetitions:-->
+        <Notice>
+          <IdNoticeType>201</IdNoticeType>
+          <!--Optional:-->
+          <Comment>string</Comment>
+          <!--Optional:-->
+          <IdTemplateText>201</IdTemplateText>
+          <Uid>string</Uid>
+        </Notice>
+      </NoticeList>
+      <Agree>false</Agree>
+      <!--Optional:-->
+      <AgreeDate>2022-02-02Т09:09:09+03:00</AgreeDate>
+    </ApplicationStatus>
+  </ApplicationStatusList>
+</PackageData>

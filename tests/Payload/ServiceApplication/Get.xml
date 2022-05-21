@@ -1,0 +1,9 @@
+<PackageData>
+  <ServiceApplication>
+    <UidApplicationChoice>
+      <!--You have a CHOICE of the next 2 items at this level-->
+      <Uid>string</Uid>
+      <UidEpgu>201</UidEpgu>
+    </UidApplicationChoice>
+  </ServiceApplication>
+</PackageData>

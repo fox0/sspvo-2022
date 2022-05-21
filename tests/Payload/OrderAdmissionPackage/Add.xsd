@@ -1,0 +1,37 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrderAdmissionPackage">
+                    <xs:complexType>
+                        <xs:all>
+                           <xs:element type="string-500" name="Name"/>
+                            <xs:element name="File" >
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element type="xs:string" name="Base64" />
+                                        <xs:element type="string-20" name="Extension"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="string-20">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-500">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+

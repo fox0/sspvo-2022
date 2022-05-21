@@ -1,0 +1,5 @@
+<PackageData>
+  <GetIdJwtByEntityType>
+    <EntityType>string</EntityType>
+  </GetIdJwtByEntityType>
+</PackageData>

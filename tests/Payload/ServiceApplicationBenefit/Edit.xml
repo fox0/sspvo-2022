@@ -1,0 +1,12 @@
+<PackageData>
+  <ServiceApplicationBenefit>
+    <ApplicationUidChoice>
+      <!--You have a CHOICE of the next 2 items at this level-->
+      <Uid>string</Uid>
+      <UidEpgu>100</UidEpgu>
+    </ApplicationUidChoice>
+    <Uid>string</Uid>
+    <IdBenefit>201</IdBenefit>
+    <AppliedByVuz>false</AppliedByVuz>
+  </ServiceApplicationBenefit>
+</PackageData>

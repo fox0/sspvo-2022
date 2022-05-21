@@ -1,0 +1,22 @@
+<PackageData>
+  <Campaign>
+    <Uid>string</Uid>
+    <Name>string</Name>
+    <YearStart>201</YearStart>
+    <YearEnd>201</YearEnd>
+    <IdCampaignType>201</IdCampaignType>
+    <IdCampaignStatus>201</IdCampaignStatus>
+    <MaxCountAchievements>10</MaxCountAchievements>
+    <NumberAgree>201</NumberAgree>
+    <CountDirections>201</CountDirections>
+    <EndDate>2022-02-02Т09:09:09+03:00</EndDate>
+    <EducationFormList>
+      <!--Zero or more repetitions:-->
+      <IdEducationForm>201</IdEducationForm>
+    </EducationFormList>
+    <EducationLevelList>
+      <!--Zero or more repetitions:-->
+      <IdEducationLevel>201</IdEducationLevel>
+    </EducationLevelList>
+  </Campaign>
+</PackageData>

@@ -1,0 +1,9 @@
+<PackageData>
+  <OrderAdmissionPackage>
+    <Name>string</Name>
+    <File>
+      <Base64>string</Base64>
+      <Extension>string</Extension>
+    </File>
+  </OrderAdmissionPackage>
+</PackageData>

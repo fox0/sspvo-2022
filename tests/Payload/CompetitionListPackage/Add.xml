@@ -1,0 +1,10 @@
+<PackageData>
+  <CompetitionListPackage>
+    <Name>string</Name>
+    <Uid>string</Uid>
+    <File>
+      <Base64>string</Base64>
+      <Extension>string</Extension>
+    </File>
+  </CompetitionListPackage>
+</PackageData>

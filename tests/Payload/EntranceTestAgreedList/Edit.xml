@@ -1,0 +1,20 @@
+<PackageData>
+    <EntranceTestAgreedList>
+        <!--1 or more repetitions:-->
+        <EntranceTestAgreed>
+            <UidChoice>
+                <!--You have a CHOICE of the next 2 items at this level-->
+                <Uid>string</Uid>
+                <UidEpgu>100</UidEpgu>
+            </UidChoice>
+            <UidApplicationChoice>
+                <!--You have a CHOICE of the next 2 items at this level-->
+                <Uid>string</Uid>
+                <UidEpgu>100</UidEpgu>
+            </UidApplicationChoice>
+            <UidEntranceTestLocation>string</UidEntranceTestLocation>
+            <UidEntranceTest>string</UidEntranceTest>
+            <AgreeDate>2022-02-02Т09:09:09+03:00</AgreeDate>
+        </EntranceTestAgreed>
+    </EntranceTestAgreedList>
+</PackageData>

@@ -1,0 +1,31 @@
+<PackageData>
+  <EntranceTestResultList>
+    <!--1 or more repetitions:-->
+    <EntranceTestResult>
+      <UidApplicationChoice>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <Uid>string</Uid>
+        <UidEpgu>100</UidEpgu>
+      </UidApplicationChoice>
+      <Uid>string</Uid>
+      <UidEntranceTest>string</UidEntranceTest>
+      <!--Optional:-->
+      <IdEntranceTestDocumentType>100</IdEntranceTestDocumentType>
+      <!--Optional:-->
+      <UidDocumentChoice>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <Uid>string</Uid>
+        <UidEpgu>100</UidEpgu>
+      </UidDocumentChoice>
+      <IssueDate>2008-09-29T05:49:45</IssueDate>
+      <IdResultSource>100</IdResultSource>
+      <ResultValue>42</ResultValue>
+      <!--Optional:-->
+      <IdBenefit>100</IdBenefit>
+      <!--Optional:-->
+      <IdAppealStatus>100</IdAppealStatus>
+      <!--Optional:-->
+      <EgeValue>100</EgeValue>
+    </EntranceTestResult>
+  </EntranceTestResultList>
+</PackageData>

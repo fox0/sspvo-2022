@@ -1,0 +1,21 @@
+<PackageData>
+  <Campaign>
+    <Uid>string</Uid>
+    <Name>string</Name>
+    <YearStart>201</YearStart>
+    <YearEnd>201</YearEnd>
+    <IdCampaignType>201</IdCampaignType>
+    <IdCampaignStatus>201</IdCampaignStatus>
+    <NumberAgree>201</NumberAgree>
+    <CountDirections>201</CountDirections>
+    <EndDate>2008-09-29</EndDate>
+    <EducationFormList>
+      <!--Zero or more repetitions:-->
+      <IdEducationForm>201</IdEducationForm>
+    </EducationFormList>
+    <EducationLevelList>
+      <!--Zero or more repetitions:-->
+      <IdEducationLevel>201</IdEducationLevel>
+    </EducationLevelList>
+  </Campaign>
+</PackageData>

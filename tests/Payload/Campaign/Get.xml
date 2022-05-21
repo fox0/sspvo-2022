@@ -1,0 +1,7 @@
+<PackageData>
+  <Campaign>
+    <!--You have a CHOICE of the next 2 items at this level-->
+    <Uid>string</Uid>
+    <YearStart>201</YearStart>
+  </Campaign>
+</PackageData>

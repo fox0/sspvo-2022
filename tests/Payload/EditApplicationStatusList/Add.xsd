@@ -1,0 +1,64 @@
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ApplicationStatusList">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ApplicationStatus" maxOccurs="unbounded" >
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="UidChoice">
+                                            <xs:complexType>
+                                                <xs:choice>
+                                                    <xs:element type="string-36" name="Uid"/>
+                                                    <xs:element type="xs:long" name="UidEpgu"/>
+                                                </xs:choice>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:positiveInteger" name="IdStatus"/>
+                                        <xs:element type="string-500" name="StatusComment" minOccurs="0"/>
+                                        <xs:element name="NoticeList" minOccurs="0" >
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Notice" maxOccurs="20">
+                                                        <xs:complexType>
+                                                            <xs:all>
+                                                                <xs:element type="xs:positiveInteger" name="IdNoticeType"/>
+                                                                <xs:element type="string-500" name="Comment"
+                                                                            minOccurs="0"/>
+                                                                <xs:element type="xs:positiveInteger" name="IdTemplateText"
+                                                                            minOccurs="0"/>
+                                                                <xs:element type="string-36" name="Uid" />
+                                                            </xs:all>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:boolean" name="Agree"/>
+                                        <xs:element type="xs:dateTime" name="AgreeDate" minOccurs="0"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-500">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

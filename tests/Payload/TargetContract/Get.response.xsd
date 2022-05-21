@@ -1,0 +1,66 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="TargetContract">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="IdEntrantChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Guid"/>
+                                        <xs:element type="string-11" name="Snils"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="string-36" name="UidTargetOrganization"/>
+                            <xs:element name="File">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element type="xs:string" name="Base64" />
+                                        <xs:element type="string-20" name="Extension" minOccurs="0"/>
+                                        <xs:element type="string-32" name="Hash"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="UidChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Uid"/>
+                                        <xs:element type="xs:integer" name="UidEpgu"/>
+                                        <xs:element type="string-32" name="Hash"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="string-11">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="11"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-20">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-32">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

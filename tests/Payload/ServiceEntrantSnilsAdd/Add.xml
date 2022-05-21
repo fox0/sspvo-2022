@@ -1,0 +1,6 @@
+<PackageData>
+  <ServiceEntrantSnilsAdd>
+    <Guid>string</Guid>
+    <Snils>string</Snils>
+  </ServiceEntrantSnilsAdd>
+</PackageData>

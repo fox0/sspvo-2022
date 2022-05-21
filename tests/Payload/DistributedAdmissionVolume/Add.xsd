@@ -1,0 +1,38 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DistributedAdmissionVolume">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element type="string-36" name="Uid"/>
+                            <xs:element type="string-36" name="UidAdmissionVolume"/>
+                            <xs:element type="xs:integer" name="IdDirection"/>
+                            <xs:element type="xs:integer" name="IdLevelBudget"/>
+                            <xs:element type="xs:nonNegativeInteger" name="BudgetO"/>
+                            <xs:element type="xs:nonNegativeInteger" name="BudgetOz" />
+                            <xs:element type="xs:nonNegativeInteger" name="BudgetZ" />
+                            <xs:element type="xs:nonNegativeInteger" name="QuotaO"/>
+                            <xs:element type="xs:nonNegativeInteger" name="QuotaOz" />
+                            <xs:element type="xs:nonNegativeInteger" name="QuotaZ"/>
+                            <xs:element type="xs:nonNegativeInteger" name="PaidO" />
+                            <xs:element type="xs:nonNegativeInteger" name="PaidOz" />
+                            <xs:element type="xs:nonNegativeInteger" name="PaidZ" />
+                            <xs:element type="xs:nonNegativeInteger" name="TargetO" />
+                            <xs:element type="xs:nonNegativeInteger" name="TargetOz" />
+                            <xs:element type="xs:nonNegativeInteger" name="TargetZ"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+

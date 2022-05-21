@@ -1,0 +1,95 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ServiceApplicationAchievement">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="ApplicationUidChoice" >
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Uid"/>
+                                        <xs:element type="xs:integer" name="UidEpgu"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ApplicationAchievementUidChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element type="string-36" name="Uid"/>
+                                        <xs:element type="xs:integer" name="UidEpgu"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="string-36" name="UidCampaignAchievement"/>
+                            <xs:element type="string-500" name="Name"/>
+                            <xs:element type="xs:positiveInteger" name="Mark"/>
+                            <xs:element name="ExistDocumentOrFileChoice">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element name="DocumentAchievementUidChoice">
+                                            <xs:complexType>
+                                                <xs:choice>
+                                                    <xs:element type="string-36" name="Uid"/>
+                                                    <xs:element type="xs:integer" name="UidEpgu"/>
+                                                </xs:choice>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="File">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element type="xs:string" name="Base64"/>
+                                                    <xs:element type="string-20" name="Extension"/>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Olympic" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element type="xs:positiveInteger" name="OlimpicId"/>
+                                        <xs:element type="string-1024" name="OlympicName"/>
+                                        <xs:element type="xs:nonNegativeInteger" name="OlympicNumber" minOccurs="0"/>
+                                        <xs:element type="xs:positiveInteger" name="OlympicYear"/>
+                                        <xs:element type="xs:positiveInteger" name="SubjectId"/>
+                                        <xs:element type="string-1024" name="SubjectName"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:simpleType name="string-20">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-500">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-1024">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1024"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

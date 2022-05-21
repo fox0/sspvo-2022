@@ -1,0 +1,184 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PackageData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="EpguPaidContract">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="Application">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:positiveInteger" name="UidEpgu"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Person">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="Surname" type="string-256"/>
+                                        <xs:element name="Name" type="string-256"/>
+                                        <xs:element name="Patronymic" type="string-256" minOccurs="0"/>
+                                        <xs:element name="Serial" type="string-50" minOccurs="0"/>
+                                        <xs:element name="Number" type="string-50"/>
+                                        <xs:element name="IssueOrganization" type="string-256"/>
+                                        <xs:element name="SubdivisionCode" type="string-50" minOccurs="0"/>
+                                        <xs:element name="IssueDate" type="xs:date" minOccurs="0"/>
+                                        <xs:element name="Birthdate" type="xs:date"/>
+                                        <xs:element name="Birthplace" type="string-1024"/>
+                                        <xs:element name="RegistrationAddress">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element name="FullAddress" type="string-1024"/>
+                                                    <xs:element name="Index" type="string-6" />
+                                                    <xs:element name="IdRegion" type="xs:positiveInteger" />
+                                                    <xs:element name="Area" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="City" type="string-256"/>
+                                                    <xs:element name="CityArea" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="Place" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="Street" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="AdditionalArea" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="AdditionalStreet" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="House" type="string-20" minOccurs="0"/>
+                                                    <xs:element name="Building1" type="string-50" minOccurs="0"/>
+                                                    <xs:element name="Building2" type="string-50" minOccurs="0"/>
+                                                    <xs:element name="Apartment" type="string-50" minOccurs="0"/>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Snils" type="string-11" minOccurs="0"/>
+                                        <xs:element name="Inn" type="string-12" minOccurs="0"/>
+                                        <xs:element name="Phone" type="string-256" minOccurs="0" />
+                                        <xs:element name="KindShip" type="xs:positiveInteger" minOccurs="0"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Organization">
+                                <xs:complexType>
+                                    <xs:all>
+                                         <xs:element name="IssueOrganizationName" type="string-1024"/>
+                                        <xs:element name="Kpp" type="string-10" minOccurs="0"/>
+                                        <xs:element name="Inn" type="string-10" minOccurs="0"/>
+                                        <xs:element name="Ogrn" type="string-20" minOccurs="0"/>
+                                        <xs:element name="Bik" type="string-10" minOccurs="0"/>
+                                        <xs:element name="Rs" type="string-20" minOccurs="0"/>
+                                        <xs:element name="Ks" type="string-20" minOccurs="0"/>
+                                        <xs:element name="RegistrationAddress">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element name="FullAddress" type="string-1024"/>
+                                                    <xs:element name="Index" type="string-6" />
+                                                    <xs:element name="IdRegion" type="xs:positiveInteger" />
+                                                    <xs:element name="Area" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="City" type="string-256"/>
+                                                    <xs:element name="CityArea" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="Place" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="Street" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="AdditionalArea" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="AdditionalStreet" type="string-256" minOccurs="0"/>
+                                                    <xs:element name="House" type="string-20" minOccurs="0"/>
+                                                    <xs:element name="Building1" type="string-50" minOccurs="0"/>
+                                                    <xs:element name="Building2" type="string-50" minOccurs="0"/>
+                                                    <xs:element name="Apartment" type="string-50" minOccurs="0"/>
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Phone" type="string-256" minOccurs="0" />
+                                        <xs:element name="Surname" type="string-256"/>
+                                        <xs:element name="Name" type="string-256"/>
+                                        <xs:element name="Patronymic" type="string-256" minOccurs="0"/>
+                                        <xs:element name="Post" type="string-256" minOccurs="0"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Payment">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="PaymentMethod" type="xs:positiveInteger" />
+                                        <xs:element name="Surname" type="string-256" minOccurs="0"/>
+                                        <xs:element name="Name" type="string-256" minOccurs="0"/>
+                                        <xs:element name="Patronymic" type="string-256" minOccurs="0"/>
+                                        <xs:element name="Serial" type="string-50" minOccurs="0"/>
+                                        <xs:element name="Number" type="string-50" minOccurs="0"/>
+                                        <xs:element name="IssueOrganization" type="string-256"/>
+                                        <xs:element name="IssueDate" type="xs:date" minOccurs="0"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="File">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element type="xs:string" name="Base64" />
+                                        <xs:element type="string-20" name="Extension" minOccurs="0"/>
+                                        <xs:element type="string-32" name="Hash"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="string-6">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-10">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-11">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-12">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-20">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-32">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-36">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="36"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-50">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-256">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="256"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string-1024">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1024"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

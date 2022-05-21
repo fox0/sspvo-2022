@@ -1,0 +1,12 @@
+<PackageData>
+  <EntranceTestAgreedList>
+    <!--1 or more repetitions:-->
+    <EntranceTestAgreed>
+      <UidChoice>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <Uid>string</Uid>
+        <UidEpgu>100</UidEpgu>
+      </UidChoice>
+    </EntranceTestAgreed>
+  </EntranceTestAgreedList>
+</PackageData>

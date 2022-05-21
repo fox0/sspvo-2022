@@ -1,19 +1,33 @@
 #![allow(non_snake_case)]
 
-use yaserde_derive::YaSerialize;
+use yaserde_derive::{YaSerialize, YaDeserialize};
 use validator::Validate;
 
 
-#[derive(YaSerialize)]
-pub enum PackageData {
-    OrgDirection(OrgDirection),
-    TargetOrganization(TargetOrganization),
+#[allow(dead_code)]
+pub enum Payload {
+    OrgDirection,
+    TargetOrganization,
 }
+
+
+#[derive(Debug, PartialEq, YaSerialize, YaDeserialize, Validate)]
+#[yaserde(rename = "PackageData")]
+pub struct XmlOrgDirection {
+    pub OrgDirection: OrgDirection,
+}
+
+#[derive(Debug, PartialEq, YaSerialize, YaDeserialize, Validate)]
+#[yaserde(rename = "PackageData")]
+pub struct XmlTargetOrganization {
+    pub TargetOrganization: TargetOrganization,
+}
+
 
 //DirectionParamsValue
 
 /// Направления подготовки ООВО
-#[derive(YaSerialize, Validate)]
+#[derive(Debug, PartialEq, Default, YaSerialize, YaDeserialize, Validate)]
 pub struct OrgDirection {
     #[validate(length(max = 36))]
     pub Uid: String,
@@ -22,7 +36,7 @@ pub struct OrgDirection {
 }
 
 /// Целевые организации
-#[derive(YaSerialize, Validate)]
+#[derive(Debug, PartialEq, Default, YaSerialize, YaDeserialize, Validate)]
 pub struct TargetOrganization {
     #[validate(length(max = 36))]
     pub Uid: String,
@@ -46,4 +60,3 @@ pub struct TargetOrganization {
     #[validate(length(max = 500))]
     pub ChiefNames: Option<String>,
 }
-

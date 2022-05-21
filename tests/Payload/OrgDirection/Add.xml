@@ -1,0 +1,12 @@
+<PackageData>
+  <OrgDirection>
+    <Uid>string</Uid>
+    <IdDirection>200</IdDirection>
+    <!--Optional:-->
+    <DirectionParamsValueList>
+      <DirectionParamsValue>
+        <Uid>string</Uid>
+      </DirectionParamsValue>
+    </DirectionParamsValueList>
+  </OrgDirection>
+</PackageData>

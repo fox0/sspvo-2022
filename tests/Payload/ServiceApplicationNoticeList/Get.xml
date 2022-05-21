@@ -1,0 +1,8 @@
+<PackageData>
+  <ServiceApplicationNoticeList>
+    <!--1 or more repetitions:-->
+    <Notice>
+      <Uid>string</Uid>
+    </Notice>
+  </ServiceApplicationNoticeList>
+</PackageData>

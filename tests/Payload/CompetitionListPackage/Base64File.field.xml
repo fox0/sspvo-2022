@@ -1,0 +1,50 @@
+<PackageData>
+  <CompetitiveGroupApplicationsList>
+    <UidCompetitiveGroup>string</UidCompetitiveGroup>
+    <AdmissionVolume>201</AdmissionVolume>
+    <CountFirstStep>201</CountFirstStep>
+    <CountSecondStep>201</CountSecondStep>
+    <Changed>2008-09-29T05:49:45</Changed>
+    <ApplicationList>
+      <!--1 or more repetitions:-->
+      <Application>
+        <UidApplicationChoice>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <Uid>string</Uid>
+          <UidEpgu>3</UidEpgu>
+        </UidApplicationChoice>
+        <Rating>201</Rating>
+        <!--Optional:-->
+        <WithoutTests>true</WithoutTests>
+        <!--Optional:-->
+        <ReasonWithoutTests>string</ReasonWithoutTests>
+        <EntranceTest1>string</EntranceTest1>
+        <Result1>1.5E2</Result1>
+        <EntranceTest2>string</EntranceTest2>
+        <Result2>1.5E2</Result2>
+        <EntranceTest3>string</EntranceTest3>
+        <Result3>1.5E2</Result3>
+        <!--Optional:-->
+        <EntranceTest4>string</EntranceTest4>
+        <!--Optional:-->
+        <Result4>1.5E2</Result4>
+        <!--Optional:-->
+        <EntranceTest5>string</EntranceTest5>
+        <!--Optional:-->
+        <Result5>1.5E2</Result5>
+        <AchievementsMark>1.5E2</AchievementsMark>
+        <EntranceTestMark>1.5E2</EntranceTestMark>
+        <SumMark>1.5E2</SumMark>
+        <Benefit>true</Benefit>
+        <!--Optional:-->
+        <ReasonBenefit>string</ReasonBenefit>
+        <Agreed>true</Agreed>
+        <Original>true</Original>
+        <!--Optional:-->
+        <Addition>string</Addition>
+        <!--Optional:-->
+        <IdStageEnrollment>201</IdStageEnrollment>
+      </Application>
+    </ApplicationList>
+  </CompetitiveGroupApplicationsList>
+</PackageData>
